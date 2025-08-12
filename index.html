@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern Rock Paper Scissors game with beautiful animations and responsive design">
+    <meta name="keywords" content="rock paper scissors, game, interactive, modern, responsive">
+    <title>Rock Paper Scissors - Modern Game Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light theme">
+        <span class="theme-icon" id="theme-icon">🌙</span>
+    </button>
+
+    <!-- Settings Button -->
+    <button class="theme-toggle" id="settings-toggle" aria-label="Toggle settings panel" style="top: 80px;">
+        <span class="theme-icon">⚙️</span>
+    </button>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settings-panel">
+        <h3>Settings</h3>
+        <div class="setting-item">
+            <label for="animations-toggle">Animations</label>
+            <div class="toggle-switch active" id="animations-toggle" role="switch" aria-checked="true"></div>
+        </div>
+        <div class="setting-item">
+            <label for="sounds-toggle">Sound Effects</label>
+            <div class="toggle-switch active" id="sounds-toggle" role="switch" aria-checked="true"></div>
+        </div>
+        <div class="volume-control">
+            <span>🔊</span>
+            <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="50" aria-label="Volume control">
+            <span id="volume-display">50%</span>
+        </div>
+    </div>
+
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confetti-container"></div>
+
+    <!-- Main Game Container -->
+    <div class="game-container" role="main">
+        <header>
+            <h1>Rock Paper Scissors</h1>
+            <p class="game-subtitle">Best of 5 Rounds</p>
+        </header>
+
+        <div class="game-info" role="region" aria-label="Game information">
+            <div class="round-counter" role="status" aria-live="polite">
+                <span>Round: <span id="current-round">1</span> / 5</span>
+            </div>
+            <div class="score-board" role="region" aria-label="Score board">
+                <div class="player-score">
+                    <h3>You</h3>
+                    <span id="player-score" aria-label="Your score">0</span>
+                </div>
+                <div class="computer-score">
+                    <h3>Computer</h3>
+                    <span id="computer-score" aria-label="Computer score">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="choices-display" role="region" aria-label="Game choices display">
+            <div class="player-choice">
+                <h4>Your Choice</h4>
+                <div id="player-choice-display" class="choice-icon" aria-label="Your choice will appear here">?</div>
+            </div>
+            <div class="vs-divider" aria-hidden="true">VS</div>
+            <div class="computer-choice">
+                <h4>Computer's Choice</h4>
+                <div id="computer-choice-display" class="choice-icon" aria-label="Computer choice will appear here">?</div>
+            </div>
+        </div>
+
+        <div class="game-buttons" role="group" aria-label="Game choice buttons">
+            <button id="rock-btn" class="choice-btn" data-choice="rock"
+                    aria-label="Choose Rock"
+                    aria-describedby="rock-description">
+                <span class="choice-emoji" aria-hidden="true">🪨</span>
+                <span class="choice-text">Rock</span>
+                <span id="rock-description" class="sr-only">Rock crushes Scissors</span>
+            </button>
+            <button id="paper-btn" class="choice-btn" data-choice="paper"
+                    aria-label="Choose Paper"
+                    aria-describedby="paper-description">
+                <span class="choice-emoji" aria-hidden="true">📄</span>
+                <span class="choice-text">Paper</span>
+                <span id="paper-description" class="sr-only">Paper covers Rock</span>
+            </button>
+            <button id="scissors-btn" class="choice-btn" data-choice="scissors"
+                    aria-label="Choose Scissors"
+                    aria-describedby="scissors-description">
+                <span class="choice-emoji" aria-hidden="true">✂️</span>
+                <span class="choice-text">Scissors</span>
+                <span id="scissors-description" class="sr-only">Scissors cuts Paper</span>
+            </button>
+        </div>
+
+        <div class="result-section">
+            <div id="round-result" class="round-result"></div>
+            <div id="game-result" class="game-result hidden"></div>
+        </div>
+
+        <button id="play-again-btn" class="play-again-btn hidden">Play Again</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
